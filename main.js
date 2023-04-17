@@ -3,7 +3,7 @@ const start_btn =document.getElementById("start");
 const stop_btn =document.getElementById("stop");
 const reset_btn =document.getElementById("reset");
 
-let seconds = 9500;
+let seconds = 0;
 let interval = null;
 
 start_btn.addEventListener('click', start);
@@ -25,22 +25,22 @@ function watch(){
 
     timer.innerText = `${hrs}:${mins}:${secs}`
 }
-watch();
 
-// function start(){
-//     if(interval){
-//         return
-//     }
-//     interval = setInterval(watch, 1000);
-// }
 
-// function stop(){
-//     clearInterval(interval);
-//     interval = null;
-// }
+function start(){
+    if(interval){
+        return
+    }
+    interval = setInterval(watch, 1000);
+}
 
-// function reset(){
-//     stop();
-//     seconds = 0;
-//     timer.innerText = "00:00:00";
-// }
+function stop(){
+    clearInterval(interval);
+    interval = null;
+}
+
+function reset(){
+    stop();
+    seconds = 0;
+    timer.innerText = "00:00:00";
+}
